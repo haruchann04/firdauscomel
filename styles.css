@@ -307,6 +307,57 @@ h1 {
 
 /* Add these styles for the zoom buttons */
 .map-and-dots button {
+	
+    font-size: 18px;
+    width: 40px;
+    height: 40px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    margin: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s, transform 0.3s;
+	z-index: 2; /* Ensure the buttons are in front of the map */
+}
+
+.map-and-dots button:hover {
+    background: #444;
+}
+
+/* Adjust the position and styles of the zoom buttons */
+.map-and-dots button:nth-child(1) {
+    top: 50%;
+    transform: translateY(-50%) rotate(180deg); /* Rotate the zoom out button */
+    left: -50px;
+}
+
+.map-and-dots button:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+    right: -50px;
+}
+
+#dot-list li#red-dot-instruction {
+  color: red; /* Set the text color for the red dot instruction to red */
+}
+
+#dot-list li#blue-dot-instruction {
+  color: blue; /* Set the text color for the blue dot instruction to blue */
+}
+
+.map-and-dots {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1; /* Add this line to ensure the buttons are in front of the map */
+}
+
+
+/* Add these styles for the zoom buttons */
+.map-and-dots button {
     font-size: 20px;
     width: 30px;
     height: 30px;
