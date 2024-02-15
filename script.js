@@ -432,12 +432,14 @@ let scale = 1;
 zoomInBtn.addEventListener('click', () => {
     scale += 0.1; // Increase scale
     applyScale(); // Apply scale to map
+    updateZoomButtons(); // Update zoom buttons
 });
 
 // Function to handle zoom out
 zoomOutBtn.addEventListener('click', () => {
     scale -= 0.1; // Decrease scale
     applyScale(); // Apply scale to map
+    updateZoomButtons(); // Update zoom buttons
 });
 
 // Function to apply scale to the map
@@ -446,5 +448,13 @@ function applyScale() {
     scale = Math.min(Math.max(0.5, scale), 2); // Limit scale between 0.5 and 2
     // Apply scale transform to map
     parkingMap.style.transform = `scale(${scale})`;
+}
+
+// Function to update the appearance of zoom buttons based on scale
+function updateZoomButtons() {
+    // Disable zoom out button if scale is at its minimum
+    zoomOutBtn.disabled = scale <= 0.5;
+    // Disable zoom in button if scale is at its maximum
+    zoomInBtn.disabled = scale >= 2;
 }
 
