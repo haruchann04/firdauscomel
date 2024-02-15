@@ -420,51 +420,5 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-// Get references to the zoom buttons and the map element
-const zoomInBtn = document.getElementById('zoom-in-btn');
-const zoomOutBtn = document.getElementById('zoom-out-btn');
-const parkingMap = document.getElementById('parking-map');
-
-// Set initial scale
-let scale = 1;
-
-// Function to handle zoom in
-zoomInBtn.addEventListener('click', () => {
-    scale += 0.1; // Increase scale
-    applyScale(); // Apply scale to map
-    updateZoomButtonsPosition(); // Update zoom buttons position
-});
-
-// Function to handle zoom out
-zoomOutBtn.addEventListener('click', () => {
-    scale -= 0.1; // Decrease scale
-    applyScale(); // Apply scale to map
-    updateZoomButtonsPosition(); // Update zoom buttons position
-});
-
-// Function to apply scale to the map
-function applyScale() {
-    // Limit scale within bounds
-    scale = Math.min(Math.max(0.5, scale), 2); // Limit scale between 0.5 and 2
-    // Apply scale transform to map
-    parkingMap.style.transform = `scale(${scale})`;
-}
-
-// Function to update zoom buttons position
-function updateZoomButtonsPosition() {
-    // Get the current position of the map container
-    const mapContainerRect = document.getElementById('map-container').getBoundingClientRect();
-    // Calculate the offset to position the zoom buttons relative to the scaled image
-    const offsetX = (parkingMap.offsetWidth - parkingMap.offsetWidth * scale) / 2;
-    const offsetY = (parkingMap.offsetHeight - parkingMap.offsetHeight * scale) / 2;
-    // Set the position of the zoom buttons
-    zoomInBtn.style.right = `${offsetX}px`;
-    zoomOutBtn.style.right = `${offsetX}px`;
-    zoomInBtn.style.bottom = `${offsetY}px`;
-    zoomOutBtn.style.bottom = `${offsetY + zoomInBtn.offsetHeight}px`; // Position zoom out button below zoom in button
-}
-
-// Initial update of zoom buttons position
-updateZoomButtonsPosition();
 
 
