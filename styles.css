@@ -213,3 +213,18 @@ button:hover {
     left: 0;
     pointer-events: none; /* Make the canvas non-interactable so clicks pass through to the map */
 }
+
+/* Portrait orientation */
+@media (orientation: portrait) {
+    .map-container {
+        width: 90%; /* Adjust width for portrait orientation */
+    }
+}
+
+/* Landscape orientation */
+@media (orientation: landscape) {
+    .map-container {
+        width: 70%; /* Adjust width for landscape orientation */
+    }
+}
+
