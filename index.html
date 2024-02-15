@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parking System Navigation</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div class="controls" id="controls">
+        <label for="current-location">Current Location:</label>
+        <div class="dropdown" style="z-index: 1;" >
+            <input type="text" id="current-location" class="dropdown-input" placeholder="Enter current location">
+            <ul class="dropdown-list" id="current-location-list" style="color: black;"></ul>
+        </div>
+        
+        <label for="destination">Destination:</label>
+        <div class="dropdown">
+            <input type="text" id="destination" class="dropdown-input" placeholder="Enter destination">
+            <ul class="dropdown-list" id="destination-list" style="color: black;"></ul>
+        </div>
+        
+        <button id="navigate-button">Navigate</button>
+    </div>
+
+    <!-- Map container is initially hidden -->
+    <div class="map-container" id="map-container">
+        <img id="parking-map" src="C:\Users\User\Desktop\REAL\parking-map-level1.jpg">
+        <!-- Parking symbols container -->
+        <div class="parking-symbols-container" id="parking-symbols-container"></div>
+        <!-- Add this inside the map-container div -->
+        <canvas id="route-canvas" width="800" height="500"></canvas>
+
+    </div>
+
+    <button id="done-button">Done</button>
+    <button id="start-button">Start</button> <!-- New "Start" button -->
+
+    <script src="script.js"></script>
+</body>
+</html>
