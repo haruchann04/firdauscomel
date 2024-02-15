@@ -419,3 +419,32 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 });
+
+// Get references to the zoom buttons and the map element
+const zoomInBtn = document.getElementById('zoom-in-btn');
+const zoomOutBtn = document.getElementById('zoom-out-btn');
+const parkingMap = document.getElementById('parking-map');
+
+// Set initial scale
+let scale = 1;
+
+// Function to handle zoom in
+zoomInBtn.addEventListener('click', () => {
+    scale += 0.1; // Increase scale
+    applyScale(); // Apply scale to map
+});
+
+// Function to handle zoom out
+zoomOutBtn.addEventListener('click', () => {
+    scale -= 0.1; // Decrease scale
+    applyScale(); // Apply scale to map
+});
+
+// Function to apply scale to the map
+function applyScale() {
+    // Limit scale within bounds
+    scale = Math.min(Math.max(0.5, scale), 2); // Limit scale between 0.5 and 2
+    // Apply scale transform to map
+    parkingMap.style.transform = `scale(${scale})`;
+}
+
